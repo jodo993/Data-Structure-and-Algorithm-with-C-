@@ -86,15 +86,21 @@ T List<T>::sUndefinedT;
 template<typename T>
 void ListNode::PushFront(T tData)
 {
+	ListNode *newNode;
+	newNode = new ListNode;
+
 	if (mHead == NULL)
 	{
-		mHead = mHead = new ListNode(tData);
+		mHead = newNode;
+		mTail - newNode;
 	}
 	else
 	{
 		mHead->mPrev = new ListNode(tData);
 		mHead = mHead->mPrev;
+		mHead = newNode;
 	}
+	++mSize;
 }
 
 // Add to end of list
@@ -187,7 +193,27 @@ void ListNode::Clear()
 template<typename T>
 void ListNode::Erase(Iterator tWhat)
 {
+	if (mHead == NULL)
+		std::cout << "Empty" << std::endl;
+	else
+	{
+		ListNode *mCurrent;
+		if (mHead->getData() == delete)
+		{
+			mCurrent = mHead;			// Current point to the address the first node is pointing to
+			mHead = mHead->Next();		// head now points to the next node
 
+			if (mHead == NULL)
+				last = NULL;
+			else
+				mHead->mPrev;
+
+			--count;
+			delete mCurrent;
+			mCurrent == NULL;
+		}
+	}
+		
 }
 
 template<typename T>
