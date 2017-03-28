@@ -38,7 +38,11 @@ public:
 	// Clear all data
 	void Clear()
 	{
-
+		// Clear all elements
+		for (int i = 0; i < size.length(); i++)
+		{
+			size[i] = NULL;
+		}
 	}
 
 	// If data is found
