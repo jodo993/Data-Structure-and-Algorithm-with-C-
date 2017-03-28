@@ -90,12 +90,47 @@ public:
 	// Get an element
 	T GetWithKey(string tKey)
 	{
-
+		if (next->tKey > tKey)
+			return current->vData;
 	}
 
 	// Remove an element
 	void RemoveKey(string tKey)
 	{
+		int position = Hash[tKey];
 
+		// Pointers variables
+		element* deletion;
+		element* one;
+		element* two;
+
+		// No found
+		if (size[position]->tKey == "empty")
+		{
+			std::cout << "Not Found" << std::endl;
+		}
+		// One item match
+		else if (size[position]->tData == tKey && size[position]->next == NULL)
+		{
+			size[position]->name == nullptr;
+			size[position]->tKey == nullptr;
+		}
+		// Match in first item
+		else if (size[position]->tData == tKey)
+		{
+			deletion = size[position];
+			size[position] = size[position]->next;
+			delete deletion;
+			std::cout << "Removed" << std::endl;
+		}
+		// Match found
+		else
+		{
+			deletion = one;		// Point to item to remove
+			one = one->next;	// Points to next item in list
+			two->next = one;	// Points to new item
+
+			delete deletion;
+		}
 	}
 };
