@@ -20,8 +20,12 @@ int main()
 	std::cout << std::endl;
 
 	Sort(v);
+	for (int n : v)
+	{
+		std::cout << n << " ";
+	}
+	std::cout << std::endl;		
 	//int hi = v.size();
 	//std::cout << hi << std::endl;
-    return 0;
+	return 0;
 }
-
