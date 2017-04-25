@@ -86,11 +86,33 @@ public:
 		std::cout << std::endl;
 	}
 
-	bool HasLoop()	{
+	bool HasLoop(std::string from, std::string to) {
+		for (int i = _mainData.begin(); i != _mainData.end(); i++) {
+			if (distance[i->_mainData.find[from] > i->_mainData.find[to];)
+				weight = _mainData.find[from] + _mainData.find[to];
+		}
 		return false;
 	}
 
 	int BestDistance(std::string from, std::string to) {
+		int _minDist;
+		_minDist = _mainData.find[from] + _mainData.find[to];
+
+		if (_mainData.find[from] == _mainData.end() && _mainData.find[to] == _mainData.end())
+			return _minDist;
+		else if (_mainData.find[from] != _mainData.end()) {
+			Edge *newEdge = new Edge();
+			newEdge->_from = _mainData[from] + 1;
+			newEdge->_to = _mainData[to] + 1;
+
+			if (_mainData.find[from] + _mainData.find[to] < _minDist) {
+				_minDist = _mainData.find[from] + _mainData.find[to];
+			}
+		}
+		else {
+			_minDist = _minDist;
+		}
+
 	}
 };
 
