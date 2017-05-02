@@ -21,6 +21,11 @@ class Graph {
 public:
 	Graph()	{
 	}
+	Graph(const string std::_data, const _int weight)
+	{
+		data = _data;
+		weight = _weight;
+	}
 	~Graph(){ 
 	}
 	void Add(std::string nodeName){
@@ -95,6 +100,8 @@ public:
 	}
 
 	int BestDistance(std::string from, std::string to) {
+		int distanceTotal[from];
+		for (int from = 0; from < 
 		int _minDist;
 		_minDist = _mainData.find[from] + _mainData.find[to];
 
