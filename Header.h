@@ -54,4 +54,15 @@ private:
 		delete right;
 	}
 
+	void combine(HuffNode _node) {
+		std::string _num;
+		if (_node->_left != NULL) {
+			_num = _num + "0";
+			combine(_node->_left);
+		}
+		if (_node->_right != NULL) {
+			_num = _num + "1";
+			combine(_node->_right);
+		}
+	}
 };
