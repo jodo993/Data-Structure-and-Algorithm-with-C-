@@ -4,7 +4,6 @@
 #include<unordered_map>
 #include<iostream>
 
-template <type T>
 class Graph {
 	struct Edge;
 	struct Vertex {
@@ -87,29 +86,32 @@ public:
 		std::cout << std::endl;
 	}
 
-	bool covered(int l,int m, int r) {
-		for (int j = 1; j < lim; j++) {
-			if (set & j) {
-				for (int m = 1; m <= l; m++) {
-					lim[l][r] = 1;
-					lim[r][m] = 1;
-				}
+	int search(int start, int end) {
+		while (!tree.empty()) {
+			int currentFlow = tree.front();
+		}
+	}
+
+	int MaxFlow(int T, int T) {
+		int _start = T;
+		int _end = T;
+		int _totalFlow = 0;
+		int _currentFlow = 0;
+		int _maxFlow = 0;
+		while (true) {
+			int flow = search(_start, _end);
+
+			if (flow == 0)
+				break;
+			_maxFlow = _maxFlow + flow;
+			int currentFlow = _end;
+
+			while (currentFlow != _start) {
+				int first = currentFlow;
 			}
 		}
+		return _totalFlow;
 	}
 
-	int FindMinimalCover(Graph <T>* tAnswer) {
-		int left = 1;
-		int right = tAnswer;
-
-		while (tAnswer > left) {
-			int middle = (left + tAnswer);
-			if (covered(left, middle, right) = false)
-				left = middle + 1;
-			else
-				right = middle;
-		}
-		return left;
-	}
 };
 
