@@ -16,6 +16,7 @@ public:
 
 	int ProcessFile(std::string filename) {
 		_name = filename;
+		// Open file
 		std::ifstream _infile;
 		_infile.open("_name");
 		std::string _stuff;
@@ -28,8 +29,8 @@ public:
 	}
 
 	int buildNode(char _data, int _nodeWeight) {
-		HuffNode* temp = new HuffNode;
-		temp->_data = _data;
+		HuffNode* temp = new HuffNode;				// Create new node
+		temp->_data = _data;						// Point the weight and data into new node
 		temp->_nodeWeight = _nodeWeight;
 		temp->_right = NULL;
 		temp->_left = NULL;
@@ -49,6 +50,7 @@ private:
 		HuffNode();
 	};
 
+	// Destructor
 	~HuffNode() {
 		delete left;
 		delete right;
@@ -56,10 +58,12 @@ private:
 
 	void combine(HuffNode _node) {
 		std::string _num;
+		// Go down left side until none left
 		if (_node->_left != NULL) {
 			_num = _num + "0";
 			combine(_node->_left);
 		}
+		// Go down right side until none left
 		if (_node->_right != NULL) {
 			_num = _num + "1";
 			combine(_node->_right);
