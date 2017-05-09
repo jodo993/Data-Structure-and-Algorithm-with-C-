@@ -6,21 +6,25 @@
 class Huffamn
 {
 private:
-	std::string name;
+	std::string _name;
+	std::string _whole;
+	char _word;
 
 public:
 	// give a file name, return the new number of bits
 	// total bits is the sum of all frequency * bitsize entries
 
 	int ProcessFile(std::string filename) {
-		name = filename;
+		_name = filename;
 		std::ifstream _infile;
-		_infile.open("filename");
+		_infile.open("_name");
 		std::string _stuff;
 
-		while (!_infile.eof()) {
-			_infile >> _stuff;
+		while (_infile >> _word) {
+			_whole = _whole + _word;
 		}
+		_infile.close();
+		return _whole;
 	}
 
 	int buildNode(char _data, int _nodeWeight) {
