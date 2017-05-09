@@ -4,6 +4,7 @@
 #include<unordered_map>
 #include<iostream>
 
+template <type T>
 class Graph {
 	struct Edge;
 	struct Vertex {
@@ -20,11 +21,6 @@ class Graph {
 
 public:
 	Graph()	{
-	}
-	Graph(const string std::_data, const _int weight)
-	{
-		data = _data;
-		weight = _weight;
 	}
 	~Graph(){ 
 	}
@@ -91,35 +87,29 @@ public:
 		std::cout << std::endl;
 	}
 
-	bool HasLoop(std::string from, std::string to) {
-		for (int i = _mainData.begin(); i != _mainData.end(); i++) {
-			if (distance[i->_mainData.find[from] > i->_mainData.find[to];)
-				weight = _mainData.find[from] + _mainData.find[to];
-		}
-		return false;
-	}
-
-	int BestDistance(std::string from, std::string to) {
-		int distanceTotal[from];
-		for (int from = 0; from < 
-		int _minDist;
-		_minDist = _mainData.find[from] + _mainData.find[to];
-
-		if (_mainData.find[from] == _mainData.end() && _mainData.find[to] == _mainData.end())
-			return _minDist;
-		else if (_mainData.find[from] != _mainData.end()) {
-			Edge *newEdge = new Edge();
-			newEdge->_from = _mainData[from] + 1;
-			newEdge->_to = _mainData[to] + 1;
-
-			if (_mainData.find[from] + _mainData.find[to] < _minDist) {
-				_minDist = _mainData.find[from] + _mainData.find[to];
+	bool covered(int l,int m, int r) {
+		for (int j = 1; j < lim; j++) {
+			if (set & j) {
+				for (int m = 1; m <= l; m++) {
+					lim[l][r] = 1;
+					lim[r][m] = 1;
+				}
 			}
 		}
-		else {
-			_minDist = _minDist;
-		}
+	}
 
+	int FindMinimalCover(Graph <T>* tAnswer) {
+		int left = 1;
+		int right = tAnswer;
+
+		while (tAnswer > left) {
+			int middle = (left + tAnswer);
+			if (covered(left, middle, right) = false)
+				left = middle + 1;
+			else
+				right = middle;
+		}
+		return left;
 	}
 };
 
