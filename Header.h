@@ -10,20 +10,20 @@ private:
 	public:
 		Node()
 		{
-			mLeft = nullptr;
-			mRight = nullptr;
+			left = nullptr;
+			right = nullptr;
 		}
 
 		struct KDThing
 		{
 			list <T, T2> data;
-			mLeft = nullptr;
-			mRight = nullptr;
+			left = nullptr;
+			right = nullptr;
 			data = TVariable;
 		};
 		T data; // Putting this first makes it easier to see in the debugger
-		Node *mLeft;
-		Node *mRight;
+		Node *left;
+		Node *right;
 	};
 	Node *root;
 
@@ -63,14 +63,34 @@ public:
 	bool Contains(pair<T, T2> what) {
 		Node* current = root;
 		int level = 0;
-		while () {
-			if (current->data < what->data)
-
-			if (level % 2 == 0 && current->data.first <change here)
+		// if root is null, nothing can be found
+		if (root == nullptr) {
+			return false;
 		}
+		bool found = true;
 
-
-
+		// search for the point to remove
+		while (true) {
+			if (current->data < what->data) {		// if current data is less than data looking for, look left
+				if (level % 2 == 0 && current->data < what->data) {
+					if (current->left != nullptr) {		// go left and something is there
+						current = current->left;
+						Contains(current->left, level + 1); // forks so recursion??
+					}
+					else
+						return false;
+				}
+				else if (level == 1 && current->data > what->data) {
+					if (current->right != nullptr) {	// go right and something is there
+						current = current->right;
+						Contains(current->right, level + 1);
+						level++;
+					}
+					else
+						return false;
+				}
+			}
+		}
 	}
 
 	void Remove(pair<T, T2> what){
