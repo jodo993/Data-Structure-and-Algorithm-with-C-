@@ -1,5 +1,6 @@
 #pragma once
 
+// not supposed to have template but everything turns red w/o
 template<typename T, T2>
 
 class KDTree
@@ -48,12 +49,12 @@ public:
 		// Forks, go left or right if less or greater than so recursive
 		// Add one to the level
 		if (current < current->data) {
-			Add(current, level);
+			current->data = Add(current, level);
 			current->left = current->data;
-			level++;
+			level++;	// associate level with new node somehow..
 		}
 		else {		// Go right
-			Add(current, level);
+			current->data = Add(current, level);
 			current->right = current->data;
 			level++;
 		}
@@ -103,7 +104,8 @@ public:
 		Node* current = root;
 		int level = what % 2;	// Find level odd or even
 
-		// deleting the node but first find which node has the point
+		// deleting the node but first find which node has the pair
+		// recursion if theres two paths
 		if (what < current->data) {
 			current->left = remove(current->left, what);
 			current->data = delete(current->left);
@@ -114,6 +116,17 @@ public:
 			current->data = delete(current->right);
 			level--;
 		}
-		return current;
+		return current;	
+	}
+
+	void AllInRange(pair<T, T2> what) {
+		Node* current = root;
+		// check current to see if is child
+		if (current->left != NULL) {
+			//  check pair?
+		}
+		if (current->right != NULL) {
+		}
+
 	}
 };
